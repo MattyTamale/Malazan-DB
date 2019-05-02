@@ -1,0 +1,23 @@
+{
+  "name": "malazan-db",
+  "version": "1.0.0",
+  "description": "A database of popular Malazan Book of the Fallen Characters",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattyTamale/Malazan-DB.git"
+  },
+  "author": "Matthew Talamantes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MattyTamale/Malazan-DB/issues"
+  },
+  "homepage": "https://github.com/MattyTamale/Malazan-DB#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
