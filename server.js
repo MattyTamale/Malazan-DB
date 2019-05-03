@@ -33,7 +33,13 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 
 
-//-- ROUTES --//
+//-- CHARACTER CONTROLLER --//
+const characterController = require('./controllers/characters.js');
+app.use('/malazan-db', characterController);
+
+
+
+//-- TEST ROUTE --//
 app.get('/' , (req, res) => {
   res.send('Hello World!');
 });
