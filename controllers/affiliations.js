@@ -1,42 +1,42 @@
 const express = require('express');
-const router = express.Router();
-const Character = require('../models/characters.js');
+const affiliations = express.Router();
+const Affiliations = require('../models/affiliations.js');
 
 
-router.get('/new', (req, res) => {
+affiliations.get('/new', (req, res) => {
   res.render('new.ejs');
 })
 
-router.post('/malazan-db/', (req, res) => {
-  Character.create(req.body, (err, createdCharacter) => {
+affiliations.post('/malazan-db/', (req, res) => {
+  Affiliations.create(req.body, (err, createdAffiliation) => {
     res.redirect('/malazan-db');
   });
 })
 
-router.put('/:id', (req, res) => {
-  Character.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedModel) => {
+affiliations.put('/:id', (req, res) => {
+  Affiliations.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedModel) => {
     res.redirect('/malazan-db');
   })
 })
 
-router.get('/:id/edit', (req, res) => {
-  Character.findById(req.params.id, (err, foundCharacter) => {
+affiliations.get('/:id/edit', (req, res) => {
+  Affiliations.findById(req.params.id, (err, foundAffiliate) => {
     res.render('edit.ejs', {
-      character: foundCharacter
+      affiliation: foundAffiliate
     })
   })
 })
 
-router.get('/', (req, res) => {
-  Character.find({}, (err, allCharacters) => {
+affiliations.get('/', (req, res) => {
+  Affiliations.find({}, (err, allAffiliations) => {
     res.render('index.ejs', {
-      characters: allCharacters
+      affiliations: allAffiliations
     });
   })
 })
 
 //enter in the url '/fruits/seed' to add this data to our database automatically.
-router.get('/seed', (req, res) => {
+affiliations.get('/seed', (req, res) => {
   Character.create([
     {
       name: 'Ganoes Paran',
@@ -67,19 +67,19 @@ router.get('/seed', (req, res) => {
   })
 })
 
-router.delete('/:id', (req, res) => {
-  Character.findByIdAndRemove(req.params.id, (err, data) => {
+affiliations.delete('/:id', (req, res) => {
+  Affiliations.findByIdAndRemove(req.params.id, (err, data) => {
     res.redirect('/malazan-db');
   })
 })
 
-router.get('/:id', (req, res) => {
-  Character.findById(req.params.id, (err, foundCharacter) => {
+affiliations.get('/:id', (req, res) => {
+  Affiliations.findById(req.params.id, (err, foundAffiliate) => {
     res.render('show.ejs', {
-      character: foundCharacter
+      affiliation: foundAffiliate
     });
   })
 })
 
 
-module.exports = router;
+module.exports = affiliations;

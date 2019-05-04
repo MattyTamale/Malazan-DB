@@ -18,7 +18,7 @@ mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
 mongoose.connection.once('open', () => {
   console.log('connected to mongo');
 })
-//-- Error / success --//
+//-- Error / success: Provided By Markdown --//
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
@@ -37,12 +37,14 @@ app.use(methodOverride('_method'));
 const characterController = require('./controllers/characters.js');
 app.use('/malazan-db', characterController);
 
-
+//-- AFFILIATIONS CONTROLLER --//
+const affiliationsControlller = require('./controllers/affiliations.js');
+app.use('/malazan-db', affiliationsControlller);
 
 //-- TEST ROUTE --//
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
-});
+// app.get('/' , (req, res) => {
+//   res.send('Hello World!');
+// });
 
 
 
