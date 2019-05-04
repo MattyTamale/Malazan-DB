@@ -2,9 +2,19 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Character Show Page</title>
+    <title></title>
   </head>
   <body>
-    <h1>Character Name</h1>
+    <h1>Character Info</h1>
+    <%=character.name%><br/>
+    <img src="<%=character.img%>" alt=""><br/>
+    <%=character.info%><br/>
+    <%=character.quote%><br/>
+    <br/>
+    <a href="/malazan-db/<%=character.id%>/edit">Edit Information?</a>
+    <form action="/fruits/<%=character.id%>?_method=DELETE" method="POST">
+      <input type="submit" value="DELETE"/>
+    </form>
+    <a href="/malazan-db">Back To Database</a>
   </body>
 </html>

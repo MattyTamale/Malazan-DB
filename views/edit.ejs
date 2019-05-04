@@ -6,5 +6,15 @@
   </head>
   <body>
     <h1>Edit A Character!</h1>
+    <div class="container">
+      <form action="/malazan-db/<%=character.id%>?_method=PUT" method="POST">
+        Name: <input type="text" name="name" value="<%=character.name%>"/><br/>
+        Image URL: <input type="text" name="img" value="<%=character.img%>"/><br/>
+        Description: <input type="text" name="info" value="<%=character.info%>"/><br/>
+        Quote: <input type="number" name="quote" value="<%=character.quote%>"/><br/>
+        <input type="submit" value="Submit Changes" /><br/>
+        <a class="menuButton" href="/malazan-db">Back to main page?</a>
+      </form>
+    </div>
   </body>
 </html>

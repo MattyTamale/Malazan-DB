@@ -9,7 +9,7 @@ router.get('/new', (req, res) => {
 
 router.post('/malazan-db/', (req, res) => {
   Character.create(req.body, (err, createdCharacter) => {
-    res.redirect('/fruits');
+    res.redirect('/malazan-db');
   });
 })
 
@@ -36,27 +36,18 @@ router.get('/', (req, res) => {
 })
 
 //enter in the url '/fruits/seed' to add this data to our database automatically.
-// router.get('/seed', (req, res) => {
-//   Fruit.create([
-//     {
-//       name: 'apple',
-//       color: 'red',
-//       readyToEat: true
-//     },
-//     {
-//       name: 'orange',
-//       color: 'orange',
-//       readyToEat: true
-//     },
-//     {
-//       name: 'banana',
-//       color: 'green',
-//       readyToEat: false
-//     }
-//   ], (err, data) => {
-//     res.redirect('/fruits');
-//   })
-// })
+router.get('/seed', (req, res) => {
+  Character.create([
+    {
+      name: 'Ganoes Paran',
+      img: 'https://vignette.wikia.nocookie.net/malazan/images/a/a0/Master_of_the_deck_by_artsed-d8t0y7p.jpg/revision/latest/scale-to-width-down/140?cb=20150718151143',
+      info:'Master of the Deck',
+      quote: 'An interesting turn of events...'
+    }
+  ], (err, data) => {
+    res.redirect('/malazan-db');
+  })
+})
 
 router.delete('/:id', (req, res) => {
   Character.findByIdAndRemove(req.params.id, (err, data) => {

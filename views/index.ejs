@@ -6,5 +6,11 @@
   </head>
   <body>
     <h1>Welcome to the Malazan Database!</h1>
+    <% for(let i = 0; i < characters.length; i++){%>
+      <div class="character">
+        <a href="/malazan-db/<%=characters[i].id%>"><img src="<%=characters[i].img%>"></a><br/>
+        <h3><%=characters[i].name%></h3>
+      </div>
+    <%}%>
   </body>
 </html>
