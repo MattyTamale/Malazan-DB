@@ -38,13 +38,13 @@ const characterController = require('./controllers/characters.js');
 app.use('/malazan-db', characterController);
 
 //-- AFFILIATIONS CONTROLLER --//
-const affiliationsControlller = require('./controllers/affiliations.js');
-app.use('/malazan-db', affiliationsControlller);
+// const affiliationsControlller = require('./controllers/affiliations.js');
+// app.use('/malazan-db', affiliationsControlller);
 
 //-- TEST ROUTE --//
-// app.get('/' , (req, res) => {
-//   res.send('Hello World!');
-// });
+app.get('/' , (req, res) => {
+  res.render('index.ejs');
+});
 
 
 
