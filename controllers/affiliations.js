@@ -2,6 +2,9 @@ const express = require('express');
 const affiliations = express.Router();
 const Affiliations = require('../models/affiliations.js');
 
+//-- MIDDLEWARE --//
+affiliations.use(express.static('public'));
+
 
 affiliations.get('/new', (req, res) => {
   res.render('affiliations/new.ejs');
@@ -32,6 +35,19 @@ affiliations.get('/', (req, res) => {
     res.render('affiliations/index.ejs', {
       affiliations: allAffiliations
     });
+  })
+})
+
+//-- SEED DATA --//
+affiliations.get('/seed', (req, res) => {
+  Affiliations.create([
+    {
+      name: 'Malazan Empire',
+      img: 'https://pbs.twimg.com/media/DAIXcWQXYAIyIEc.jpg',
+      info:'The Central Focus of the Narrative.'
+    }
+  ], (err, data) => {
+    res.redirect('/malazan-db/affiliations');
   })
 })
 

@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 //-- CONNECTION TO DATABASE --//
 // How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGODB_URI //|| 'mongodb://localhost/'+ `YOUR DATABASE NAME`;
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/'+ `malazan-db`;
 
 //-- MONGO CONNECT --//
 mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
@@ -32,6 +32,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
 
+//-- TEST ROUTE --//
+app.get('/malazan-db' , (req, res) => {
+  res.render('index.ejs');
+});
+
+//-- TEST ROUTE --//
+app.get('/' , (req, res) => {
+  res.render('index.ejs');
+});
 
 //-- CHARACTER CONTROLLER --//
 const characterController = require('./controllers/characters.js');
@@ -44,9 +53,9 @@ const affiliationsControlller = require('./controllers/affiliations.js');
 app.use('/malazan-db/affiliations', affiliationsControlller);
 
 //-- TEST ROUTE --//
-app.get('/malazan-db' , (req, res) => {
-  res.render('index.ejs');
-});
+// app.get('/malazan-db' , (req, res) => {
+//   res.render('index.ejs');
+// });
 
 
 

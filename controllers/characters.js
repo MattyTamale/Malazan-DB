@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Character = require('../models/characters.js');
 
+//-- MIDDLEWARE --//
+router.use(express.static('public'));
 
 router.get('/new', (req, res) => {
   res.render('characters/new.ejs');
