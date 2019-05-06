@@ -4,24 +4,24 @@ const Character = require('../models/characters.js');
 
 
 router.get('/new', (req, res) => {
-  res.render('new.ejs');
+  res.render('characters/new.ejs');
 })
 
-router.post('/malazan-db/', (req, res) => {
+router.post('/', (req, res) => {
   Character.create(req.body, (err, createdCharacter) => {
-    res.redirect('/malazan-db');
+    res.redirect('/malazan-db/characters');
   });
 })
 
 router.put('/:id', (req, res) => {
   Character.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedModel) => {
-    res.redirect('/malazan-db');
+    res.redirect('/malazan-db/characters');
   })
 })
 
 router.get('/:id/edit', (req, res) => {
   Character.findById(req.params.id, (err, foundCharacter) => {
-    res.render('edit.ejs', {
+    res.render('characters/edit.ejs', {
       character: foundCharacter
     })
   })
@@ -29,13 +29,13 @@ router.get('/:id/edit', (req, res) => {
 
 router.get('/', (req, res) => {
   Character.find({}, (err, allCharacters) => {
-    res.render('index.ejs', {
+    res.render('characters/index.ejs', {
       characters: allCharacters
     });
   })
 })
 
-//enter in the url '/fruits/seed' to add this data to our database automatically.
+//-- SEED DATA --//
 router.get('/seed', (req, res) => {
   Character.create([
     {
@@ -63,19 +63,19 @@ router.get('/seed', (req, res) => {
       quote: "The glory of battle, Koryk, dwells only in the bard’s voice, in the teller’s woven words. Glory belongs to ghosts and poets. What you hear and dream isn't the same as what you live— blur the distinction at your own peril, lad."
     }
   ], (err, data) => {
-    res.redirect('/malazan-db');
+    res.redirect('/malazan-db/characters');
   })
 })
 
 router.delete('/:id', (req, res) => {
   Character.findByIdAndRemove(req.params.id, (err, data) => {
-    res.redirect('/malazan-db');
+    res.redirect('/malazan-db/characters');
   })
 })
 
 router.get('/:id', (req, res) => {
   Character.findById(req.params.id, (err, foundCharacter) => {
-    res.render('show.ejs', {
+    res.render('characters/show.ejs', {
       character: foundCharacter
     });
   })

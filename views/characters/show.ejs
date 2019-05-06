@@ -11,8 +11,8 @@
     <%=character.info%><br/>
     <%=character.quote%><br/>
     <br/>
-    <a href="/malazan-db/<%=character.id%>/edit">Edit Information?</a>
-    <form action="/malazan-db/<%=character.id%>?_method=DELETE" method="POST">
+    <a href="/malazan-db/characters/<%=character.id%>/edit">Edit Information?</a>
+    <form action="/malazan-db/characters/<%=character.id%>?_method=DELETE" method="POST">
       <input type="submit" value="DELETE"/>
     </form>
     <a href="/malazan-db">Back To Database</a>

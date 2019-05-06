@@ -35,14 +35,16 @@ app.use(methodOverride('_method'));
 
 //-- CHARACTER CONTROLLER --//
 const characterController = require('./controllers/characters.js');
-app.use('/malazan-db', characterController);
+//The controller is utilizing the URL below and does not need to be declared within the character.js controller.
+app.use('/malazan-db/characters', characterController);
 
 //-- AFFILIATIONS CONTROLLER --//
-// const affiliationsControlller = require('./controllers/affiliations.js');
-// app.use('/malazan-db', affiliationsControlller);
+//Same explanation for character controller.
+const affiliationsControlller = require('./controllers/affiliations.js');
+app.use('/malazan-db/affiliations', affiliationsControlller);
 
 //-- TEST ROUTE --//
-app.get('/' , (req, res) => {
+app.get('/malazan-db' , (req, res) => {
   res.render('index.ejs');
 });
 

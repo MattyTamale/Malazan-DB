@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Malazan Database</title>
+  </head>
+  <body>
+    <h1>Notable Characters</h1>
+    <div class="container">
+      <div class="characters">
+        <% for(let i = 0; i < characters.length; i++){%>
+          <div class="character">
+            <a href="/malazan-db/characters/<%=characters[i].id%>"><img src="<%=characters[i].img%>"></a><br/>
+            <h3><%=characters[i].name%></h3>
+          </div>
+        <%}%>
+        <a class="button" href="/malazan-db/characters/new">Create a New Character?</a>
+      </div>
+    </div>
+  </body>
+</html>

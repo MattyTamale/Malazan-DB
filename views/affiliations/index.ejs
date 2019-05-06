@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>A World of War</h1>
+    <div class="container">
+      <div class="affiliations">
+        <% for(let i = 0; i < affiliations.length; i++){%>
+          <div class="affiliation">
+            <a href="/malazan-db/affiliations/<%=affiliations[i].id%>"><img src="<%=affiliations[i].img%>"></a><br/>
+            <h3><%=affiliations[i].name%></h3>
+          </div>
+        <%}%>
+        <a class="button" href="/malazan-db/affiliations/new">Create a New Affiliation?</a>
+      </div>
+    </div>
+  </body>
+</html>
