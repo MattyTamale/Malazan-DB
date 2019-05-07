@@ -6,12 +6,26 @@
     <title></title>
   </head>
   <body>
-    <h1>Start An Empire~</h1>
-      <form action="/malazan-db/affiliations" method="POST">
-      Name of Company or Country: <input type="text" name="name"><br/>
-      Image or Banner: <input type="text" name="img"><br/>
-      Brief Description: <input type="text" name="info"><br/>
-      <input type="submit" value="Create Company">
+    <nav>
+      <% include ../partials/nav.ejs %>
+    </nav>
+    <h1 style="text-align: center; margin-top: .5em;">Start An Empire~</h1>
+    <div class="container">
+      <form action="/malazan-db/applications" method="POST">
+        <div class="form-group">
+          <label>Name of Company or Country: </label>
+          <input type="text" name="name">
+        </div>
+        <div class="form-group">
+          Image or Banner: <input type="text" name="img">
+        </div>
+        <div class="form-group">
+          Brief Description: <input type="text" name="info">
+        </div>
+        <div class="form-group">
+          <input class="btn btn-danger" type="submit" value="Create Company">
+        </div>
     </form>
+    </div>
   </body>
 </html>

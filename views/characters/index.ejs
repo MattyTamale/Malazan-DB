@@ -6,17 +6,35 @@
     <meta charset="utf-8">
     <title>Malazan Database</title>
   </head>
-  <body>
-    <h1>Notable Characters</h1>
-    <div class="container">
-      <div class="characters">
+  <body style="background: lightgrey;">
+    <nav>
+      <% include ../partials/nav.ejs %>
+    </nav>
+      <h1 style="text-align: center; margin-top: .5em;">Notable Characters</h1>
+    <div class="container" style="text-align: center;">
+      <div class="row" style="margin-left: 7em;">
         <% for(let i = 0; i < characters.length; i++){%>
-          <div class="character">
-            <a href="/malazan-db/characters/<%=characters[i].id%>"><img src="<%=characters[i].img%>"></a><br/>
-            <h3><%=characters[i].name%></h3>
-          </div>
-        <%}%>
-        <a class="button" href="/malazan-db/characters/new">Create a New Character?</a>
+          <div class="card-deck-center">
+              <div class="card" style="width: 270px; height: 310px; margin: 1em; background: #eab5b5;">
+                <img class="card-img-top" src="<%=characters[i].img%>" style="width: 200px; height: 200px; margin-left: 2em; margin-top: .5em;">
+                <div class="card-body" style="margin-left: 1em;">
+                  <div class="card text-center" style="width: 12rem;">
+                    <div class="card-text">
+                      <p><%=characters[i].name%></p>
+                      <a style="margin-top: -1.5em;" class="btn btn-danger btn-sm" href="/malazan-db/characters/<%=characters[i].id%>">Character Info</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      <%}%>
+    </div>
+      <div class="card text-center" style="background: #eab5b5; margin-bottom: 2em;">
+        <div class="card-body">
+          <h5 class="card-title">Create A New Character:</h5>
+          <p class="card-text">Design your own custom character and enter them in the world of the Malazan Empire!</p>
+          <a href="/malazan-db/characters/new" class="btn btn-danger">Create Character</a>
+        </div>
       </div>
     </div>
   </body>

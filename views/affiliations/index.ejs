@@ -6,16 +6,27 @@
     <title></title>
   </head>
   <body>
-    <h1>A World of War</h1>
+    <nav>
+      <% include ../partials/nav.ejs %>
+    </nav>
+    <h1 style="text-align: center;">A World of War</h1>
     <div class="container">
       <div class="affiliations">
         <% for(let i = 0; i < affiliations.length; i++){%>
-          <div class="affiliation">
-            <a href="/malazan-db/affiliations/<%=affiliations[i].id%>"><img src="<%=affiliations[i].img%>"></a><br/>
-            <h3><%=affiliations[i].name%></h3>
+          <div class="card-deck-center">
+            <div class="card" style="background: #FFFFF0; margin-bottom: 1em; padding-bottom: 1.5em;">
+            <a href="/malazan-db/affiliations/<%=affiliations[i].id%>"><img src="<%=affiliations[i].img%>" style="width: 80%; margin-left: 7em; margin-top: .5em;"></a><br/>
+            <h3 style="text-align: center; border: 1px solid grey; padding: 10px; margin: 0 auto; border-radius: 10px;"><%=affiliations[i].name%></h3>
+            </div>
           </div>
         <%}%>
-        <a class="button" href="/malazan-db/affiliations/new">Create a New Affiliation?</a>
+      </div>
+      <div class="card text-center" style="background: #eab5b5; margin-bottom: 2em;">
+        <div class="card-body">
+          <h5 class="card-title">Create A New Affiliation:</h5>
+          <p class="card-text">Design your own custom character and enter them in the world of the Malazan Empire!</p>
+          <a href="/malazan-db/affiliations/new" class="btn btn-danger">Create Affiliation</a>
+        </div>
       </div>
     </div>
   </body>

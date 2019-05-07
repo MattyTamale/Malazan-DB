@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   Character.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedModel) => {
-    res.redirect('/malazan-db/characters');
+    res.redirect('/malazan-db/characters/' + req.params.id);
   })
 })
 
