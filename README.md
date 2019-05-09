@@ -1,6 +1,10 @@
 # Malazan-DB
 A database of popular Malazan Book of the Fallen Characters
 
+-- LINK TO DATABASE --
+
+https://malazan-db.herokuapp.com/malazan-db
+
 
 -- TECHNOLOGIES USED --
 
